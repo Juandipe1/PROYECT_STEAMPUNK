@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d68229898db7442b5c46df98c3d08f, type: 3}
+  m_Name: Clock-ClockSptamped
+  m_EditorClassIdentifier: 
+  input: {fileID: 11400000, guid: 8a5dc11b07c562643b4116c974ee2904, type: 2}
+  output: {fileID: 11400000, guid: bced154c23b774c49beaf241802326b1, type: 2}
