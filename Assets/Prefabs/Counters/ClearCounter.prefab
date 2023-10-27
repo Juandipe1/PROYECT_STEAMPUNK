@@ -110,7 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterToPoint: {fileID: 3516792932843243201}
-  workshopObjectSO: {fileID: 0}
 --- !u!1001 &7189470334017474847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -182,7 +181,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: 3df51696f635b044f8c492e3c222dc6f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c51cc8627c1840440b1c2cb7b577e13b, type: 2}
+      objectReference: {fileID: 2100000, guid: 40f51e352643d3b4aaa2dc410afb34b2, type: 2}
     - target: {fileID: 919132149155446097, guid: 3df51696f635b044f8c492e3c222dc6f, type: 3}
       propertyPath: m_Name
       value: Selected
@@ -277,6 +276,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 3df51696f635b044f8c492e3c222dc6f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 73816e52af836c74b8c7037efd5f2bc2, type: 2}
     - target: {fileID: 919132149155446097, guid: 3df51696f635b044f8c492e3c222dc6f, type: 3}
       propertyPath: m_Name
       value: Tilemesa
