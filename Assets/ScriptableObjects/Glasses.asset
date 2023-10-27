@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Glasses
   m_EditorClassIdentifier: 
   prefab: {fileID: 1150636618340577254, guid: 97e3b733c0315554cb9c36cfce5b7d54, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 477e450e51e1d5245b89d0b091e40cbd, type: 3}
   objectName: Glasses

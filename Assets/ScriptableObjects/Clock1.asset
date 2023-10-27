@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Clock1
   m_EditorClassIdentifier: 
   prefab: {fileID: 1150636618340577254, guid: a76198f25cb7a894fa3272d4dc5f1661, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: ccf61f9a233b7c043a169bba6ec1770b, type: 3}
   objectName: Clock Mount

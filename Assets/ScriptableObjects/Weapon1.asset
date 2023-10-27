@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Weapon1
   m_EditorClassIdentifier: 
   prefab: {fileID: 1150636618340577254, guid: f74a76be853ef7e42a5c8d9d8627ddb5, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: df07b38949291f6489e1b39e586ba7e3, type: 3}
   objectName: Weapon

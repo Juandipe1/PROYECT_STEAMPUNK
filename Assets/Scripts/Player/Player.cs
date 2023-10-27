@@ -24,10 +24,13 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
     private Vector3 lastInteractDir;
     private BaseCounter selectedCounter;
     private WorkshopObject workshopObject;
+    private CharacterController characterController;
+    private float verticalSpeed = 2f;
+    private float gravity = 9.81f;
 
     void Awake()
     {
-        if(Instance != null)
+        if (Instance != null)
         {
             Debug.LogError("There is mero than one Player instance");
         }
@@ -38,6 +41,7 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
     {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
         gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
+        characterController = GetComponent<CharacterController>();
     }
 
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
@@ -106,56 +110,33 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
     private void HandleMovement()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
         float moveDistance = moveSpeed * Time.deltaTime;
-        float playerRadius = .7f;
-        float playerHeight = 2f;
-        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
 
-        if (!canMove)
+        if (characterController.isGrounded)
         {
-            // Cannot move owards moveDir
-
-            // Attemp only X movement
-            Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
-            canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
-
-            if (canMove)
-            {
-                //Can move only on the X
-                moveDir = moveDirX;
-            }
-            else
-            {
-                // Cannot move only on the X
-
-                // Attempt only Z movement
-                Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
-                canMove = moveDir.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
-
-                if (canMove)
-                {
-                    // Can move only the Z
-                    moveDir = moveDirZ;
-                }
-                else
-                {
-                    // Cannot move in any direction
-                }
-            }
+            verticalSpeed = 0f; // El personaje está en el suelo, reinicia la velocidad vertical
+        }
+        else
+        {
+            // Aplicar gravedad
+            verticalSpeed -= gravity * Time.deltaTime;
         }
 
-        if (canMove)
+        // Aplicar movimiento horizontal
+        if (moveDir != Vector3.zero)
         {
-            transform.position += moveDir * moveDistance;
+            characterController.Move(moveDir * moveDistance);
+            // Rotar hacia la dirección del movimiento
+            float rotateSpeed = 10f;
+            transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
         }
+
+        // Aplicar movimiento vertical
+        characterController.Move(new Vector3(0f, verticalSpeed * Time.deltaTime, 0f));
 
         isWalking = moveDir != Vector3.zero;
-
-        float rotateSpeed = 10f;
-        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
     }
 
     private void SetSelectedCounter(BaseCounter selectedCounter)
