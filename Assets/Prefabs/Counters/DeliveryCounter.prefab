@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterToPoint: {fileID: 5848524702093575310}
+  workshopObjectSO: {fileID: 11400000, guid: d6792ef827c74c94ba04f1724e3d0454, type: 2}
 --- !u!4 &3774183848150893694 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 922033255956511590, guid: fd602d14680d8714f8c351de44eb4ed4, type: 3}

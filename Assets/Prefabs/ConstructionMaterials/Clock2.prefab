@@ -102,6 +102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RELOJ1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3c1991e16ffb55547af6850eafca3cba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseCounter : MonoBehaviour, IWorkshopObjectParent
 {
+    public static event EventHandler OnAnyObjectPlacedHere;
     [SerializeField] private Transform counterToPoint;
 
 
@@ -27,6 +29,11 @@ public class BaseCounter : MonoBehaviour, IWorkshopObjectParent
     public void SetWorkshopObject(WorkshopObject workshopObject)
     {
         this.workshopObject = workshopObject;
+
+        if (workshopObject != null)
+        {
+            OnAnyObjectPlacedHere?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public WorkshopObject GetWorkshopObject()

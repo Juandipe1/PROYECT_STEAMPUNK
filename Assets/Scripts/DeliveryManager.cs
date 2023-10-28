@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
+    public event EventHandler OnRecipeSpawned;
+    public event EventHandler OnRecipeCompleted;
+    public event EventHandler OnRecipeSuccess;
+    public event EventHandler OnRecipeFailed;
     public static DeliveryManager Instance { get; private set; }
 
     [SerializeField] private RecipeListSO recipeListSO;
@@ -13,11 +18,12 @@ public class DeliveryManager : MonoBehaviour
     private float spawnRecipeTimer;
     private float spawnRecipeTimerMax = 4f;
     private int waitingRecipeMax = 4;
+    private int successfullRecipesAmount;
 
     void Awake()
     {
         Instance = this;
-        
+
         waitingRecipeSOList = new List<RecipeSO>();
     }
 
@@ -30,9 +36,11 @@ public class DeliveryManager : MonoBehaviour
 
             if (waitingRecipeSOList.Count < waitingRecipeMax)
             {
-                RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[Random.Range(0, recipeListSO.recipeSOList.Count)];
-                Debug.Log(waitingRecipeSO.recipeName);
+                RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
+
                 waitingRecipeSOList.Add(waitingRecipeSO);
+
+                OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
             }
         }
     }
@@ -54,7 +62,7 @@ public class DeliveryManager : MonoBehaviour
                     foreach (WorkshopObjectSO craftWorkshopObjectSO in craftWorkshopObject.GetWorkshopObjectSOList())
                     {
                         // Cycling throught all ingredients in the Plate
-                        if (craftWorkshopObject == recipeWorkshopObjectSO)
+                        if (craftWorkshopObjectSO == recipeWorkshopObjectSO)
                         {
                             // Ingredient matches!
                             ingredientFound = true;
@@ -71,14 +79,29 @@ public class DeliveryManager : MonoBehaviour
                 if (plateContentsMatchesRecipe)
                 {
                     // Player delivered the correct recipe!
-                    Debug.Log("Player delivered the correct recipe!");
+                    successfullRecipesAmount++;
+
                     waitingRecipeSOList.RemoveAt(i);
+
+                    OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+                    OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
                     return;
                 }
             }
         }
         // Not mathes found!
         // Player did not deliver a correct recipe
-        Debug.Log("Player did not deliver a correct recipe");
+        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
     }
+
+    public List<RecipeSO> GetWaitingRecipeSOList()
+    {
+        return waitingRecipeSOList;
+    }
+
+    public int GetSuccesfulRecipesAmount()
+    {
+        return successfullRecipesAmount;
+    }
+
 }

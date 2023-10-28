@@ -8,6 +8,7 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
 {
     public static Player Instance { get; private set; }
 
+    public event EventHandler OnPickedSomething;
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
@@ -46,6 +47,8 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
 
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
     {
+        if (!WorkshopGameManager.Instance.IsGamePlaying()) return;
+
         if (selectedCounter != null)
         {
             selectedCounter.InteractAternate(this);
@@ -54,6 +57,8 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
 
     private void GameInput_OnInteractAction(object sender, EventArgs e)
     {
+        if (!WorkshopGameManager.Instance.IsGamePlaying()) return;
+
         if (selectedCounter != null)
         {
             selectedCounter.Interact(this);
@@ -157,6 +162,11 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
     public void SetWorkshopObject(WorkshopObject workshopObject)
     {
         this.workshopObject = workshopObject;
+
+        if (workshopObject != null)
+        {
+            OnPickedSomething?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public WorkshopObject GetWorkshopObject()

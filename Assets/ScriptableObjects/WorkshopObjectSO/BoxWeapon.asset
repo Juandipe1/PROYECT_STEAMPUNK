@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BoxWeapon
   m_EditorClassIdentifier: 
   prefab: {fileID: 1150636618340577254, guid: 6823d7e7e5eafc448809c1565cfb5866, type: 3}
-  sprite: {fileID: 0}
-  objectName: Craft
+  sprite: {fileID: 21300000, guid: dd5155f046bdc70498893ea3c1f272da, type: 3}
+  objectName: Weapon

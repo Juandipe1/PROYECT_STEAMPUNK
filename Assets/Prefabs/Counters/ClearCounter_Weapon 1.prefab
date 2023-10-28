@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterToPoint: {fileID: 5706690577213352678}
-  plateWorkshopObjectSO: {fileID: 11400000, guid: 7d157882e9164e149a9b745612a60e4e, type: 2}
+  plateWorkshopObjectSO: {fileID: 11400000, guid: 168b9092737f51c47b45d8c3be73bc2f, type: 2}
 --- !u!4 &3060344193159358998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6162211295796282929, guid: 544658fa4b4a1ca41b9c114d0ef05914, type: 3}

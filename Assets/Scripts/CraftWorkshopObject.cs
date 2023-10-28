@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CraftWorkshopObject : WorkshopObject
 {
+    public static event EventHandler OnAnyCraft;
 
     public event EventHandler<OnIngradientAddedEventArgs> OnIngredientAdded;
     public class OnIngradientAddedEventArgs : EventArgs
@@ -55,6 +57,7 @@ public class CraftWorkshopObject : WorkshopObject
                 if (objectToActivate != null)
                 {
                     objectToActivate.SetActive(true);
+                    OnAnyCraft?.Invoke(this, EventArgs.Empty);
                 }
             }
 
