@@ -13,4 +13,5 @@ public class AudioClipRefsSO : ScriptableObject
     public AudioClip[] objectCraft;
     public AudioClip[] trash;
     public AudioClip[] warning;
+    public AudioClip[] steamPressure;
 }

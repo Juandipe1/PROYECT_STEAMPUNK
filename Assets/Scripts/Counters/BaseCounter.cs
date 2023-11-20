@@ -8,6 +8,10 @@ public class BaseCounter : MonoBehaviour, IWorkshopObjectParent
     public static event EventHandler OnAnyObjectPlacedHere;
     [SerializeField] private Transform counterToPoint;
 
+    public static void ResetStaticData()
+    {
+        OnAnyObjectPlacedHere = null;
+    }
 
     private WorkshopObject workshopObject;
 

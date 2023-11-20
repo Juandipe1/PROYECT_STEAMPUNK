@@ -9,10 +9,11 @@ public static class Loader
     public enum Scene
     {
         MainMenuScene,
-        Tutorial,
+        GameScene,
         LoadingScene
     }
-    public static Scene targetScene;
+    
+    private static Scene targetScene;
 
     public static void Load(Scene targetScene)
     {

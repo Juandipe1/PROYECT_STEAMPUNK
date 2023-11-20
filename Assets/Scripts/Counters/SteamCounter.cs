@@ -5,26 +5,29 @@ using UnityEngine;
 
 public class SteamCounter : BaseCounter
 {
-    public static SteamCounter Instance { get; private set; }
+    public static event EventHandler OnSteamCharge;
 
-    public event EventHandler OnPlayerGrabbedObject;
-
-    [SerializeField] private WorkshopObjectSO workshopObjectSO;
-    private float addValue = 10f;
-
-    void Awake()
+    new public static void ResetStaticData()
     {
-        Instance = this;
+        OnSteamCharge = null;
     }
+
+    [SerializeField] private WorkshopObjectSO specificWorkshopObjectSO;
+
+    private float addTime = 8f;
 
     public override void Interact(Player player)
     {
         if (player.HasWorkshopObject())
         {
+            if (player.GetWorkshopObject().GetWorkshopObjectSO() == specificWorkshopObjectSO)
+            {
                 player.GetWorkshopObject().DestroySelf();
 
-                WorkshopGameManager.Instance.AddPlayingTimer(addValue);
-            
+                WorkshopGameManager.Instance.AddPlayingTimer(addTime);
+
+                OnSteamCharge?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }

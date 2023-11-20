@@ -8,6 +8,11 @@ public class CraftWorkshopObject : WorkshopObject
 {
     public static event EventHandler OnAnyCraft;
 
+    public static void ResetStaticData()
+    {
+        OnAnyCraft = null;
+    }
+
     public event EventHandler<OnIngradientAddedEventArgs> OnIngredientAdded;
     public class OnIngradientAddedEventArgs : EventArgs
     {

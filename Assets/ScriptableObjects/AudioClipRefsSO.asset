@@ -37,7 +37,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 99c666127ba3b974c99980d14efcf03c, type: 3}
   trash:
   - {fileID: 8300000, guid: 4b70ec0f0afb9ac4ea7dfea07aca4eb4, type: 3}
-  - {fileID: 8300000, guid: 6024ba1d53d005f48a96b3a9f6bacedd, type: 3}
   warning:
   - {fileID: 8300000, guid: b90d8099bdbf09a40ab1163556d5b5f4, type: 3}
   - {fileID: 8300000, guid: b59c98e0066c41f42b8100f5cb180f5b, type: 3}
+  steamPressure:
+  - {fileID: 8300000, guid: bbd5a4d56789af44e9b2549676c67d86, type: 3}
+  - {fileID: 8300000, guid: 9fac350f155bc7349bf67b863f42f72b, type: 3}

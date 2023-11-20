@@ -21,7 +21,6 @@ public class WorkshopGameManager : MonoBehaviour
     }
 
     private State state;
-    private float waitingToStartTimer = 1f;
     private float countdownToStartTimer = 3f;
     private float gamePlayingTimer;
     private float gamePlayingTimerMax = 30f;
@@ -41,11 +40,21 @@ public class WorkshopGameManager : MonoBehaviour
     void Start()
     {
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
+        GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
+    }
+
+    private void GameInput_OnInteractAction(object sender, EventArgs e)
+    {
+        if (state == State.WaitingToStart)
+        {
+            state = State.CountdownToStart;
+            OnStateChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     private void GameInput_OnPauseAction(object sender, EventArgs e)
     {
-        PauseGame();
+        TogglePauseGame();
     }
 
     void Update()
@@ -53,12 +62,6 @@ public class WorkshopGameManager : MonoBehaviour
         switch (state)
         {
             case State.WaitingToStart:
-                waitingToStartTimer -= Time.deltaTime;
-                if (waitingToStartTimer < 0f)
-                {
-                    state = State.CountdownToStart;
-                    OnStateChanged?.Invoke(this, EventArgs.Empty);
-                }
                 break;
             case State.CountdownToStart:
                 countdownToStartTimer -= Time.deltaTime;
@@ -80,7 +83,6 @@ public class WorkshopGameManager : MonoBehaviour
             case State.GameOver:
                 break;
         }
-        Debug.Log(state);
 
         if (arrow != null)
         {
@@ -113,7 +115,7 @@ public class WorkshopGameManager : MonoBehaviour
         return 1 - (gamePlayingTimer / gamePlayingTimerMax);
     }
 
-    private void PauseGame()
+    public void TogglePauseGame()
     {
         isGamePaused = !isGamePaused;
         if (isGamePaused)
@@ -136,10 +138,5 @@ public class WorkshopGameManager : MonoBehaviour
         {
             gamePlayingTimer = gamePlayingTimerMax;
         }
-    }
-
-    internal void AddPlayingTimer(object addValue)
-    {
-        throw new NotImplementedException();
     }
 }
