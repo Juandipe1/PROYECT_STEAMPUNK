@@ -23,7 +23,7 @@ public class WorkshopGameManager : MonoBehaviour
     private State state;
     private float countdownToStartTimer = 3f;
     private float gamePlayingTimer;
-    private float gamePlayingTimerMax = 30f;
+    private float gamePlayingTimerMax = 90f;
     private bool isGamePaused = false;
 
     [SerializeField] private Image arrow;

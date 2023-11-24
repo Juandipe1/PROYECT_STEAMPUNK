@@ -549,6 +549,10 @@ PrefabInstance:
       propertyPath: workshopObjectSO
       value: 
       objectReference: {fileID: 11400000, guid: aa6732dc734b75740bd2c047c2b81434, type: 2}
+    - target: {fileID: 1710513009769496833, guid: e3a532cb20a687d44ae1c97801fd493c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3e3c763f5c6b2b44b931339e6ec57053, type: 3}
     - target: {fileID: 4375769878647179510, guid: e3a532cb20a687d44ae1c97801fd493c, type: 3}
       propertyPath: m_RootOrder
       value: 0

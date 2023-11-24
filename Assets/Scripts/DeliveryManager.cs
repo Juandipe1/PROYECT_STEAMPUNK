@@ -20,6 +20,9 @@ public class DeliveryManager : MonoBehaviour
     private int waitingRecipeMax = 4;
     private int successfullRecipesAmount;
 
+    private bool lastDeliverySuccesful;
+
+
     void Awake()
     {
         Instance = this;
@@ -85,6 +88,7 @@ public class DeliveryManager : MonoBehaviour
 
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
+                    lastDeliverySuccesful = true;
                     return;
                 }
             }
@@ -92,6 +96,7 @@ public class DeliveryManager : MonoBehaviour
         // Not mathes found!
         // Player did not deliver a correct recipe
         OnRecipeFailed?.Invoke(this, EventArgs.Empty);
+        lastDeliverySuccesful = false;
     }
 
     public List<RecipeSO> GetWaitingRecipeSOList()
@@ -102,6 +107,11 @@ public class DeliveryManager : MonoBehaviour
     public int GetSuccesfulRecipesAmount()
     {
         return successfullRecipesAmount;
+    }
+
+    public bool LastDeliberySuccesful()
+    {
+        return lastDeliverySuccesful;
     }
 
 }

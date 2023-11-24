@@ -25,7 +25,10 @@ public class DeliveryCounter : BaseCounter
 
                 player.GetWorkshopObject().DestroySelf();
 
-                WorkshopObject.SpawnWorkshopObject(workshopObjectSO, player);
+                if (DeliveryManager.Instance.LastDeliberySuccesful())
+                {
+                    WorkshopObject.SpawnWorkshopObject(workshopObjectSO, player);
+                }
             }
         }
     }

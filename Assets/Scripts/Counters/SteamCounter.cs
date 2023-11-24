@@ -14,7 +14,7 @@ public class SteamCounter : BaseCounter
 
     [SerializeField] private WorkshopObjectSO specificWorkshopObjectSO;
 
-    private float addTime = 8f;
+    [SerializeField] private float addTime = 5f;
 
     public override void Interact(Player player)
     {
