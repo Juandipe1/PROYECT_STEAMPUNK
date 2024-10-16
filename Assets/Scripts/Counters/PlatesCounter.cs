@@ -10,7 +10,7 @@ public class PlatesCounter : BaseCounter
 
     [SerializeField] private WorkshopObjectSO plateWorkshopObjectSO;
     private float spawnPlateTimer;
-    private float spawnPlateTimerMax = 4f;
+    private float spawnPlateTimerMax = 1f;
     private int platesSpawnedAmount;
     private int platesSpawnedAmountMax = 1;
 

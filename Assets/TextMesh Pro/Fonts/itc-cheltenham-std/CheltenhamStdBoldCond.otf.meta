@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 474358f39be91144f9614cc2c2a2ef29
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - ITC Cheltenham Std
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 351ca7e8d7e6d4d4e9d259a874a9ff44, type: 3}
+  - {fileID: 12800000, guid: a50320937f48e0b41b9c4de227ff993d, type: 3}
+  - {fileID: 12800000, guid: 1297e70ab88e13f49979417258ae45d1, type: 3}
+  - {fileID: 12800000, guid: 3626bbecd08b998428970474786d11bb, type: 3}
+  - {fileID: 12800000, guid: 004f31fd363376c498bee410773b61b8, type: 3}
+  - {fileID: 12800000, guid: 000aff3125006ff4cad2e3ecaa9feafe, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

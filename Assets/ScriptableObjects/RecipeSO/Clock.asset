@@ -16,3 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 91ede48f5cf910b4eb9d681e097ca0be, type: 2}
   - {fileID: 11400000, guid: 8a5dc11b07c562643b4116c974ee2904, type: 2}
   recipeName: REGALA HORAS
+  recipeImage: {fileID: 21300000, guid: 9ebda21b1367fa746873e508899269f4, type: 3}

@@ -41,9 +41,9 @@ public class DeliveryManagerUI : MonoBehaviour
 
         foreach (RecipeSO recipeSO in DeliveryManager.Instance.GetWaitingRecipeSOList())
         {
-            Transform recipeTransfom = Instantiate(recipeTemplate, container);
-            recipeTransfom.gameObject.SetActive(true);
-            recipeTransfom.GetComponent<DeliveryManagerSingleUI>().SetREcipeSO(recipeSO);
+            Transform recipeTransform = Instantiate(recipeTemplate, container);
+            recipeTransform.gameObject.SetActive(true);
+            recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetRecipeSO(recipeSO);
         }
     }
 }

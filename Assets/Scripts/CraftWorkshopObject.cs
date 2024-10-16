@@ -17,6 +17,7 @@ public class CraftWorkshopObject : WorkshopObject
     public class OnIngradientAddedEventArgs : EventArgs
     {
         public WorkshopObjectSO workshopObjectSO;
+        public WorshopObjectRecipeSO worshopObjectRecipeSO;
     }
 
     [SerializeField] private List<WorkshopObjectSO> validWorkshopSOList;

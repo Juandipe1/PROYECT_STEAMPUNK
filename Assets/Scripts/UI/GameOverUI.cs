@@ -15,8 +15,12 @@ public class GameOverUI : MonoBehaviour
 
     [SerializeField] private string nextScene;
 
+    public static GameOverUI Instance { get; private set; }
+
     void Awake()
     {
+        Instance = this;
+        
         buttonSuccessGame.onClick.AddListener(() =>
         {
             Loader.Load((Loader.Scene)Enum.Parse(typeof(Loader.Scene), nextScene));
@@ -74,5 +78,10 @@ public class GameOverUI : MonoBehaviour
     private void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public int GetMinRecipesAmount()
+    {
+        return minRecipesAmountGame;
     }
 }

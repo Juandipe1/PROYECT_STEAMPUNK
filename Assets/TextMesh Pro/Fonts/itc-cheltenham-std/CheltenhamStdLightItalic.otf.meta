@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 8c69efedc5f8aff49bf5ab2c1d07f4b3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - ITC Cheltenham Std
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 351ca7e8d7e6d4d4e9d259a874a9ff44, type: 3}
+  - {fileID: 12800000, guid: 3919de10ac10ee44e90cab75d48a38f7, type: 3}
+  - {fileID: 12800000, guid: 474358f39be91144f9614cc2c2a2ef29, type: 3}
+  - {fileID: 12800000, guid: 596f11b3109b7d8448bacc2ecf55d71d, type: 3}
+  - {fileID: 12800000, guid: a50320937f48e0b41b9c4de227ff993d, type: 3}
+  - {fileID: 12800000, guid: 1297e70ab88e13f49979417258ae45d1, type: 3}
+  - {fileID: 12800000, guid: 9a4670e71c4427445af26b204438ed8b, type: 3}
+  - {fileID: 12800000, guid: db91ca67c85ffa245b3b11a7def3ba62, type: 3}
+  - {fileID: 12800000, guid: 3626bbecd08b998428970474786d11bb, type: 3}
+  - {fileID: 12800000, guid: 004f31fd363376c498bee410773b61b8, type: 3}
+  - {fileID: 12800000, guid: 3ca4689152512b847b45a78176bdc5ab, type: 3}
+  - {fileID: 12800000, guid: f93ee53f3c0527149b5e499b5b15f1f2, type: 3}
+  - {fileID: 12800000, guid: 000aff3125006ff4cad2e3ecaa9feafe, type: 3}
+  - {fileID: 12800000, guid: 5b3d27bea5df20f499b19c3c17d69ea5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

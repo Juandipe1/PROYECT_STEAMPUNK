@@ -134,7 +134,7 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
         {
             characterController.Move(moveDir * moveDistance);
             // Rotar hacia la dirección del movimiento
-            float rotateSpeed = 10f;
+            float rotateSpeed = 1000f;
             transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
         }
 
